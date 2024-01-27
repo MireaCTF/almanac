@@ -1,0 +1,4 @@
+baseURL = 'https://platform.mireactf.ru/'
+languageCode = 'ru-ru'
+title = 'MireaCTF Training'
+theme = 'blowfish'

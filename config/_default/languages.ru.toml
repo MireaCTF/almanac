@@ -1,0 +1,12 @@
+languageCode = "ru"
+languageName = "Русский"
+weight = 1
+title = "MireaCTF Training"
+
+[params]
+  displayName = "RU"
+  isoCode = "ru"
+  rtl = false
+  dateFormat = "2 January 2006"
+  logo = "img/logo_small.png"
+  # copyright = "Copy, _right?_ :thinking_face:"
