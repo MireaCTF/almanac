@@ -1,7 +1,7 @@
 languageCode = "ru"
 languageName = "Русский"
 weight = 1
-title = "MireaCTF Training"
+title = "MireaCTF"
 
 [params]
   displayName = "RU"
