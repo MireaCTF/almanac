@@ -1,4 +1,4 @@
 baseURL = 'https://mireactf.ru/'
 languageCode = 'en-us'
-title = 'MireaCTF Almanac'
+title = 'test'
 theme = 'blowfish'
