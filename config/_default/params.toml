@@ -48,8 +48,8 @@ smartTOC = true
 
 [article]
   showDate = true
-  showViews = false
-  showLikes = false
+  showViews = true
+  showLikes = true
   showDateUpdated = false
   showAuthor = true
   showHero = true
@@ -117,13 +117,13 @@ smartTOC = true
   cardViewScreenWidth = false
 
 [firebase]
-  # apiKey = "XXXXXX"
-  # authDomain = "XXXXXX"
-  # projectId = "XXXXXX"
-  # storageBucket = "XXXXXX"
-  # messagingSenderId = "XXXXXX"
-  # appId = "XXXXXX"
-  # measurementId = "XXXXXX"
+  apiKey = "AIzaSyD2xOS1lKQB9tmz59c_MKhsHWPDlTqqrg0"
+  authDomain = "mireactf-6a9ec.firebaseapp.com"
+  projectId = "mireactf-6a9ec"
+  storageBucket = "mireactf-6a9ec.appspot.com"
+  messagingSenderId = "323107773047"
+  appId = "1:323107773047:web:e312032346970dfb778472"
+  measurementId = "G-V9R93YBXGF"
 
 [fathomAnalytics]
   # site = "ABC12345"
