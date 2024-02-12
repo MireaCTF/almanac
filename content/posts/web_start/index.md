@@ -5,7 +5,7 @@ date: 2024-02-12
 summary: "для взлома пентагона нужно принимать по одной капле..."
 
 series: ["Курс молодого бойца"]
-series_order: 2
+series_order: 3
 
 tags: ["web"]
 showAuthor: true
