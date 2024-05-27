@@ -30,10 +30,10 @@
     pageRef = "authors"
     weight = 4
 
-[[main]]
-    name = "Таски"
-    url = "https://platform.mireactf.ru/"
-    weight = 5
+#[[main]]
+#    name = "Таски"
+#    url = "https://platform.mireactf.ru/"
+#    weight = 5
 
 #[[main]]
 #  name = "example sub-menu 1"
