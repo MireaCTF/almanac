@@ -2,7 +2,15 @@
 Репка для авторов
 
 # Я тут первый раз, че делать?
-1. Копируем репу: ```git clone https://github.com/MireaCTF/almanac```
+1. Копируем репу: ```git clone https://github.com/MireaCTF/almanac.git``` 
+
+    Если возникает ошибка при клонировании 
+    
+    ```error: RPC failed; curl 18 transfer closed with outstanding read data remaining```
+
+    просто меняем postBuffer через 
+    
+    `git config --global http.postBuffer 524288000`
 2. Добавляем себя как автора:
    1. По пути ```almanac/data/authors``` создаём файл со своим юзернеймом. Примеры можно посмотреть у остальных.
    2. Закидываем аватарку в ```almanac/themes/blowfish/assets/img/img/authors```
