@@ -113,54 +113,9 @@ https://lectureswww.readthedocs.io/6.www.sync/2.codding/3.templates/jinja2.html
 
 ![RenderQuest](img/RenderQuest2.jpg)
 
-Сайт отрендерился. Гуд. Теперь поглядим исходники (хотя это громко сказано, ведь сервер - это всего лишь 1 файл main.go)
+Сайт отрендерился. Гуд. Теперь поглядим исходники (хотя это громко сказано, ведь сервер - это всего лишь 1 файл main.go). Вставлю только самое основное, что есть в коде
 
 ```go
-package main
-
-import (
-	"encoding/json"
-	"fmt"
-	"html/template"
-	"io"
-	"net/http"
-	"os"
-	"os/exec"
-	"path/filepath"
-	"strings"
-)
-
-const WEB_PORT = "1337"
-const TEMPLATE_DIR = "./templates"
-
-type LocationInfo struct {
-	IpVersion     int     `json:"ipVersion"`
-	IpAddress     string  `json:"ipAddress"`
-	Latitude      float64 `json:"latitude"`
-	Longitude     float64 `json:"longitude"`
-	CountryName   string  `json:"countryName"`
-	CountryCode   string  `json:"countryCode"`
-	TimeZone      string  `json:"timeZone"`
-	ZipCode       string  `json:"zipCode"`
-	CityName      string  `json:"cityName"`
-	RegionName    string  `json:"regionName"`
-	Continent     string  `json:"continent"`
-	ContinentCode string  `json:"continentCode"`
-}
-
-type MachineInfo struct {
-	Hostname      string
-	OS            string
-	KernelVersion string
-	Memory        string
-}
-
-type RequestData struct {
-	ClientIP     string
-	ClientUA     string
-	ServerInfo   MachineInfo
-	ClientIpInfo LocationInfo `json:"location"`
-}
 
 func (p RequestData) FetchServerInfo(command string) string {
 	out, err := exec.Command("sh", "-c", command).Output()
@@ -168,71 +123,6 @@ func (p RequestData) FetchServerInfo(command string) string {
 		return ""
 	}
 	return string(out)
-}
-
-func (p RequestData) GetLocationInfo(endpointURL string) (*LocationInfo, error) {
-	resp, err := http.Get(endpointURL)
-	if err != nil {
-		return nil, err
-	}
-
-	defer resp.Body.Close()
-
-	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("HTTP request failed with status code: %d", resp.StatusCode)
-	}
-
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return nil, err
-	}
-
-	var locationInfo LocationInfo
-	if err := json.Unmarshal(body, &locationInfo); err != nil {
-		return nil, err
-	}
-
-	return &locationInfo, nil
-}
-
-func isSubdirectory(basePath, path string) bool {
-	rel, err := filepath.Rel(basePath, path)
-	if err != nil {
-		return false
-	}
-	return !strings.HasPrefix(rel, ".."+string(filepath.Separator))
-}
-
-func readFile(filepath string, basePath string) (string, error) {
-	if !isSubdirectory(basePath, filepath) {
-		return "", fmt.Errorf("Invalid filepath")
-	}
-
-	data, err := os.ReadFile(filepath)
-	if err != nil {
-		return "", err
-	}
-	return string(data), nil
-}
-
-func readRemoteFile(url string) (string, error) {
-	response, err := http.Get(url)
-	if err != nil {
-		return "", err
-	}
-
-	defer response.Body.Close()
-
-	if response.StatusCode != http.StatusOK {
-		return "", fmt.Errorf("HTTP request failed with status code: %d", response.StatusCode)
-	}
-
-	content, err := io.ReadAll(response.Body)
-	if err != nil {
-		return "", err
-	}
-
-	return string(content), nil
 }
 
 func getIndex(w http.ResponseWriter, r *http.Request) {
@@ -320,7 +210,7 @@ func main() {
 }
 ```
 
-Код настолько небольшой, что я решил полностью вставить его в статью. Итак, что здесь происходит. Первое, что попадается на сайте при его открытии, это некие доступные темплейты, из которых мы можем узнать много интересного о системе. Посмотрим на это в сорсах. 
+ Итак, что здесь происходит. Первое, что попадается на сайте при его открытии, это некие доступные темплейты, из которых мы можем узнать много интересного о системе. Посмотрим на это в сорсах. 
 
 ```go
   reqData.ClientIP = clientIP
