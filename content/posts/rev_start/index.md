@@ -4,7 +4,7 @@ description: ""
 date: 2024-02-03
 summary: "Дальше только xor rsp, rsp"
 
-series: ["Курс молодого бойца"]
+series: ["Курс⠀молодого⠀бойца"]
 series_order: 2
 
 tags: ["reverse"]

@@ -4,7 +4,7 @@ description: ""
 date: 2024-02-19
 summary: " "
 
-series: ["Курс молодого бойца"]
+series: ["Курс⠀молодого⠀бойца"]
 series_order: 4
 
 tags: ["forensics"]
