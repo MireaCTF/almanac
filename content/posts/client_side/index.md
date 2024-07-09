@@ -4,7 +4,7 @@ description: ""
 date: 2024-02-23
 summary: "почему cross это X?"
 
-series: ["Погружение в web"]
+series: ["Погружение⠀в⠀web"]
 series_order: 1
 
 tags: ["web"]
