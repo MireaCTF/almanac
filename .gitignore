@@ -1,3 +1,7 @@
 public
 resources
 hugo.exe
+.hugo_build.toml
+.hugo_build.lock
+hugo.toml
+LICENSE
